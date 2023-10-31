@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Runner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="with=device-width", initial-scale="1.0">
+    <title>Runner State</title>
+    <link href="stylee.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
 </head>
 <body>
-    
+    <section class="header">
+        <nav>
+       <a href="index.html"><img src="images/letter-r_9350124.png" ></a>
+
+        <div class="nav-links" id="navLinks">
+
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="signup.html">Login</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+       </div>
+       <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>Runner State</h1>
+            <p>Runner State is a website that helps you to track your running progress and also helps you to connect with other runners.</p>
+            <a href="signup.html" class="hero-btn">Join Us To know more</a>
+    </section>
+    <!-- Javascript fot toggle menu -->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+        </script>
+
+    <section class="State">
+        <h1>All your States are here </h1>
+        <p>Here you can see all your running state.</p>
+    </section>
 </body>
 </html>
