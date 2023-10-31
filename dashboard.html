@@ -2,19 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="with=device-width", initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Runner State</title>
     <link href="stylee.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
-<style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Link to FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f49236;
+    background-color: #666462;
     margin: 0;
     padding: 0;
+}
+.card{
+    width: 200px;
+    height: 230px;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box ;
+    cursor: pointer;
+    margin: 20px 10px;
+    background-image: url(stats.jpg);
+    background-position: center;
+    background-size: cover;
 }
 </style>
 
@@ -25,8 +39,6 @@ body {
        <a href="index.html"><img src="images/icon.png" ></a>
 
         <div class="nav-links" id="navLinks">
-
-        <i class="fa fa-times" onclick="hideMenu()"></i>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -36,6 +48,20 @@ body {
        </div>
         </nav>
     </section>
-      
+      <div class="col">
+         <div class="card"> 
+            <h2>Calories Stats</h2> 
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
+         </div>
+         <div class="card"> 
+            <h2>Running Stats</h2> 
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
+         </div>
+         <div class="card"> 
+            <h2>Improvement Stats</h2> 
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas</p>
+         </div>
+
+      </div>
 </body>
 </html>
