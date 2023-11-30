@@ -12,63 +12,20 @@
     <div class = "container">
       <div class = "main-wrapper">
         <div class = "bmi-heads">
-          <div id = "bmi-usc-head" class = "bmi-head active-head">
-            <h2>US Units</h2>
-          </div>
           <div id = "bmi-si-head" class = "bmi-head">
-            <h2>Metric Units</h2>
+            <h2>Profil</h2>
           </div>
         </div>
 
         <div class="bmi-contents">
-          <!-- bmi us units -->
-          <div class = "bmi-content" id = "bmi-usc">
-            <form>
-              <div class = "form-group">
-                <p>Age</p>
-                <input type = "text" class = "form-control" placeholder="2 - 120" id = "age1">
-              </div>
-
-              <div class = "form-group col-3">
-                <p>Gender</p>
-                <div>
-                  <input type = "radio" name = "gender" id = "male" value = "male" checked>
-                  <label for = "male">Male</label>
-                </div>
-                <div>
-                  <input type="radio" name = "gender" id = "female" value = "female">
-                  <label for = "female">Female</label>
-                </div>
-              </div>
-
-              <div class = "form-group col-3">
-                <p>Height</p>
-                <input type = "text" class = "form-control" id = "feet" placeholder="feet">
-                <input type = "text" class = "form-control" id = "inches" placeholder="inches">
-              </div>
-
-              <div class = "form-group">
-                <p>Weight</p>
-                <input type = "text" class = "form-control" id = "pounds" placeholder="pounds">
-              </div>
-              <div class = "form-group">
-                <p>Distance</p>
-                <input type = "text" class = "form-control" id = "miles" placeholder="miles">
-              </div>
-              
-              <div class = "form-group">
-                <p>Time</p>
-                <input type = "time" class = "form-control" id = "time_us">
-              </div>
-            </form>
-          </div>
+          
 
           <!-- bmi metric units -->
           <div class = "bmi-content" id = "bmi-si">
             <form>
               <div class = "form-group">
-                <p>Age</p>
-                <input type = "text" class = "form-control" placeholder="2 - 120" id = "age2">
+                <p>Birth Date</p>
+                <input type = "date" class = "form-control" placeholder="2 - 120" id = "age2">
               </div>
 
               <div class = "form-group col-3">
@@ -86,22 +43,14 @@
 
               <div class = "form-group">
                 <p>Height</p>
-                <input type = "text" class = "form-control" id = "cm" placeholder="cm">
+                <input type = "number" class = "form-control" id = "cm" placeholder="cm">
               </div>
 
               <div class = "form-group">
                 <p>Weight</p>
-                <input type = "text" class = "form-control" id = "kg" placeholder="kg">
-              </div>
-              <div class = "form-group">
-                <p>Distance</p>
-                <input type = "text" class = "form-control" id = "distance" placeholder="km">
+                <input type = "number" class = "form-control" id = "kg" placeholder="kg">
               </div>
               
-             <div class = "form-group">
-  <p>Time</p>
-  <input type = "time" class = "form-control" id = "time_metric">
-</div>
               <!-- End of new fields -->
               
               </form>
@@ -110,8 +59,8 @@
         </div>
 
         <div class = "btns">
-          <button type = "button" id = "calc-btn" class = "btn">Calculate</button>
-          <button type = "button" id = "clr-btn" class = "btn">Clear</button>
+          <button type = "button" id = "calc-btn" class = "btn">Save</button>
+          <!-- <button type = "button" id = "clr-btn" class = "btn">Clear</button> -->
         </div>
 
         <div class = "output">
