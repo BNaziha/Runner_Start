@@ -40,7 +40,7 @@ $(document).ready(function() {
     
     
     function validatePasscode(passcode) {
-        var re = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
+        var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         return re.test(passcode);
     }
 
@@ -53,6 +53,42 @@ $(document).ready(function() {
             $(".input-password").css("border", "2px solid red");   
         }
             
+    });
+
+    $(".input-full-name").keyup(function() {
+        let name = $(".input-full-name").val();
+        if (name != "") {
+            $(".full-name").css("border", "2px solid rgb(129, 197, 154)");
+            
+        } else {
+            $(".full-name").css("border", "2px solid red");   
+        }
+            
+    });
+
+
+
+    $(".submit").click(function(event) {
+        let email = $(".email").val();
+        let pass = $(".password").val();
+        if (validateEmail(email)
+        && validatePasscode(pass) 
+        && $(".full-name").val() != ""
+        && $(".date").val() != ""
+        && $(".gender").val() != ""
+        ) {
+            $(".input-email").css("border", "2px solid rgb(129, 197, 154)");
+            $(".input-password").css("border", "2px solid rgb(129, 197, 154)");
+            $(".full-name").css("border", "2px solid rgb(129, 197, 154)");
+            alert("Login successful");
+
+        } else {
+            $(".input-email").css("border", "2px solid red");
+            $(".input-password").css("border", "2px solid red");
+            $(".full-name").css("border", "2px solid red");
+            alert("Login failed");
+            event.preventDefault();
+        }
     });
 });
 

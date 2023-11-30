@@ -12,49 +12,13 @@
     <div class = "container">
       <div class = "main-wrapper">
         <div class = "bmi-heads">
-          <div id = "bmi-usc-head" class = "bmi-head active-head">
-            <h2>US Units</h2>
-          </div>
           <div id = "bmi-si-head" class = "bmi-head">
-            <h2>Metric Units</h2>
+            <h2>Add record</h2>
           </div>
         </div>
-
-        <div class="bmi-contents">
-          <!-- bmi us units -->
-          <div class = "bmi-content" id = "bmi-usc">
-            <form>
-
-              
-              <div class = "form-group">
-                <p>Distance</p>
-                <input type = "text" class = "form-control" id = "miles" placeholder="miles">
-              </div>
-              
-              <div class = "form-group">
-                <p>Time</p>
-                <input type = "time" class = "form-control" id = "time_us">
-              </div>
-            </form>
-          </div>
-
           <!-- bmi metric units -->
           <div class = "bmi-content" id = "bmi-si">
             <form>
-            
-              <div class = "form-group col-3">
-                <p>Gender</p>
-                <div>
-                  <input type = "radio" name = "gender" id = "male" value = "male" checked>
-                  <label for = "male">Male</label>
-                </div>
-
-                <div>
-                  <input type = "radio" name = "gender" id = "female" value = "female">
-                  <label for = "female">Female</label>
-                </div>
-              </div>
-
             
               <div class = "form-group">
                 <p>Distance</p>
@@ -63,14 +27,11 @@
               
               <div class = "form-group">
                 <p>Time</p>
-                <input type = "time" class = "form-control" id = "time_metric">
+                <input type = "number" class = "form-control" id = "time_metric">
               </div>
               <!-- End of new fields -->
-              
-              </form>
-            </form>
+                          </form>
           </div>
-        </div>
 
         <div class = "btns">
           <button type = "button" id = "calc-btn" class = "btn">Calculate</button>

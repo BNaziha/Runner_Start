@@ -97,9 +97,7 @@ body{
 .btns .btn:focus{
     outline: 0;
 }
-#bmi-usc, #bmi-si{
-    display: none;
-}
+
 /* js related */
 .show-bmi{
     display: block!important;
