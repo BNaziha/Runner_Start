@@ -56,6 +56,7 @@ $(document).ready(function() {
     });
 
     $(".input-full-name").keyup(function() {
+
         let name = $(".input-full-name").val();
         if (name != "") {
             $(".full-name").css("border", "2px solid rgb(129, 197, 154)");
@@ -67,6 +68,14 @@ $(document).ready(function() {
     });
 
 
+    $(".login-btn").click(function(event) {
+        event.preventDefault();
+        var email = $(".email-login").val();
+        $.get("../server/verifyEmail.php?email=" + email, function(data) {
+            $("#email-result").html(data);
+        });
+    });
+    
 
     $(".submit").click(function(event) {
         let email = $(".email").val();
@@ -113,6 +122,4 @@ function validateForm() {
         return false;
     }
 }
-
-
 
