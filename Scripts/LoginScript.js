@@ -71,11 +71,23 @@ $(document).ready(function() {
     $(".login-btn").click(function(event) {
         event.preventDefault();
         var email = $(".email-login").val();
-        $.get("../server/verifyEmail.php?email=" + email, function(data) {
+        var pass = $(".password-login").val();
+        $.post("../server/verifyEmail.php", {email:email ,password:pass}, function(data) {
             $("#email-result").html(data);
         });
     });
     
+    $(".btn.submit").click(function(event) {
+        event.preventDefault();
+        var Fullname = $(".input-full-name").val();
+        var email = $(".email").val();
+        var date = $(".date").val();
+        var height = $(".height").val();
+        var weight = $(".weight").val();
+        var sex =  $(".sex").val();
+        var pass = $(".password").val();
+        $.post("../server/addUser.php", {email:email, date:date, height:height, weight:weight, FullName:Fullname, sex:sex, password:pass}, function(data) {});
+    });
 
     $(".submit").click(function(event) {
         let email = $(".email").val();

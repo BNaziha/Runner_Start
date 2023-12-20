@@ -47,32 +47,38 @@
                 <h2 class="title">Sign up</h2>
                 <div class="input-field full-name">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Full name" class="input-full-name" >
+                    <input type="text" name=FullName placeholder="Full name" class="input-full-name" >
 
                 </div>
                 <div class="input-field date">
                     <i class="fas fa-calendar"></i>
-                    <input type="date">
+                    <input type="date"  name="date" class="date">
                 </div>
                 <i class="fas fa-person"></i>
                 <div class = "input-field gender">
-                    <div></div>
-                        <select name="" id="">
+                        <select name="sex" id="sex">
                             <option value="m">Male</option>
                             <option value="f">Female</option>
                         </select>
                   </div>
-    
+                  <div class="input-field input-height">
+                    <i class="fas fa-arrow"></i>
+                    <input type="number" name="height" placeholder="height" class="height">
+                </div>
+                <div class="input-field input-weight">
+                    <i class="fas fa-weight"></i>
+                    <input type="number" name="weight" placeholder="weight" class="weight">
+                </div>
                  
                 <div class="input-field input-email">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Email" class="email">
+                    <input type="text" name="email" placeholder="Email" class="email">
                 </div>
                 <div class="input-field input-password">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password" class="password">
+                    <input type="password"  name="password" placeholder="Password" class="password">
                 </div>
-                <button type="submit" value="Sign up" class="btn submit">Sign up</button>
+                <button type="submit" value="Sign up" class="btn submit" >Sign up</button>
                 <p class="social-text">Or Sign in with social platform</p>
                 <div class="social-media">
                     <a href="#" class="social-icon">
