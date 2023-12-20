@@ -1,16 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "runnurstats_db";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once "connDB.php";
 
 // SQL query to retrieve emails
 
