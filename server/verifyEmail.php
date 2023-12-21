@@ -5,20 +5,26 @@ require_once "connDB.php";
 // SQL query to retrieve emails
 
 if (!isset($_POST["email"]) && !isset($_POST["password"])  ) {
-    echo "No email provided.";
+    echo json_encode(["s" => "No email provided."]);
     exit();
 }
-$sql = "SELECT email, MotDePasse FROM personnes WHERE email = '" . $_GET["email"] . "'";
+$sql = "SELECT ID, email, MotDePasse FROM personnes WHERE email = '" . $_POST["email"] . "'";
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $pass = $result->fetch_assoc()["MotDePasse"];
-    password_verify($_POST["password"], $pass);
-    echo true;
-    
+    $obj = $result->fetch_assoc();
+    // $id = $result->fetch_assoc()["ID"];
+    if(password_verify($_POST["password"], $obj["MotDePasse"]))
+    {
+        echo json_encode(["s" => true, "id" => $obj["ID"]]);    
+    }
+    else
+    {
+        echo json_encode(["s" => "Wrong password."]);
+    }
 } else {
-    echo "No emails found.";
+    echo json_encode(["s" =>"No emails found."]);
 }
 
 $conn->close();

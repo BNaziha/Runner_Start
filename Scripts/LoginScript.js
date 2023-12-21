@@ -73,7 +73,15 @@ $(document).ready(function() {
         var email = $(".email-login").val();
         var pass = $(".password-login").val();
         $.post("../server/verifyEmail.php", {email:email ,password:pass}, function(data) {
-            $("#email-result").html(data);
+            let Objdata = JSON.parse(data);
+            if(Objdata.s == true)
+            {
+                window.location.href = "./add-record.html?id="+Objdata.id; //todo: change to dashboard.html
+            }
+            else
+            {
+                $("#error-msg-login").html(Objdata.s);
+            }
         });
     });
     
@@ -84,9 +92,22 @@ $(document).ready(function() {
         var date = $(".date").val();
         var height = $(".height").val();
         var weight = $(".weight").val();
-        var sex =  $(".sex").val();
+        var sex =  $("#sex").val();
         var pass = $(".password").val();
-        $.post("../server/addUser.php", {email:email, date:date, height:height, weight:weight, FullName:Fullname, sex:sex, password:pass}, function(data) {});
+        $.post("../server/addUser.php", {email:email, date:date, height:height, weight:weight, FullName:Fullname, sex:sex, password:pass}, function(data) {
+            var Objdata = JSON.parse(data);
+            if(Objdata.s == true)
+            {
+                // alert("Register successful");
+                window.location.href = "./add-record.html?id="+Objdata.id;
+
+            }
+            else
+            {
+                $("#error-msg").html(Objdata.s);
+                // alert(Objdata.s);
+            }
+        });
     });
 
     $(".submit").click(function(event) {
@@ -101,14 +122,14 @@ $(document).ready(function() {
             $(".input-email").css("border", "2px solid rgb(129, 197, 154)");
             $(".input-password").css("border", "2px solid rgb(129, 197, 154)");
             $(".full-name").css("border", "2px solid rgb(129, 197, 154)");
-            alert("Login successful");
+            // alert("Login successful");
 
         } else {
             $(".input-email").css("border", "2px solid red");
             $(".input-password").css("border", "2px solid red");
             $(".full-name").css("border", "2px solid red");
-            alert("Login failed");
-            event.preventDefault();
+            // alert("Login failed");
+            // event.preventDefault();
         }
     });
 });
