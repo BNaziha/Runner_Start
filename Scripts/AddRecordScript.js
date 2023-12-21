@@ -13,17 +13,29 @@ $(document).ready(function() {
         const s = $('#seconds').val();
         
         const time = h * 10000 + m * 100 + s * 1;
-        console.log(time);
+        // const time = 22;
+        // console.log(time);
         const distance = $('#distance').val();
         return { time, distance };
     }
 
     function add()
     {
+        let urlParams = new URLSearchParams(window.location.search);
+        let myID = urlParams.get('id');
+        console.log(myID);
+
         const timeAndDistance = getTimeAndDistance();
-        $.get('../server/addRecord.php', {time: timeAndDistance.time, distance: timeAndDistance.distance}, function(response) {
-            // Handle the response from the server
-            console.log(response);
+        const url = `../server/addRecord.php?UserID=${myID}&time=${timeAndDistance.time}&distance=${timeAndDistance.distance}`;
+        $.get(url, function(response) {
+            if(response == true)
+            {
+                clearBMIInfo();
+            }
+            else
+            {
+                alert("Error: " + response);
+            }
         });
         
     }
