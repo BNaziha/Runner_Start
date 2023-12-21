@@ -6,15 +6,12 @@ $(document).ready(function() {
     const CLR_BTN = $('#clr-btn');
     let activeForm;
     
-    // get time and distance from input fields
     function getTimeAndDistance() {
         const h = $('#hours').val();
         const m = $('#minutes').val();
         const s = $('#seconds').val();
         
         const time = h * 10000 + m * 100 + s * 1;
-        // const time = 22;
-        // console.log(time);
         const distance = $('#distance').val();
         return { time, distance };
     }
@@ -30,7 +27,10 @@ $(document).ready(function() {
         $.get(url, function(response) {
             if(response == true)
             {
-                clearBMIInfo();
+                $('#hours').val('');
+                $('#minutes').val('');
+                $('#seconds').val('');
+                $('#distance').val('');
             }
             else
             {
