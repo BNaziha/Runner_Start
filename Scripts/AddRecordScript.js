@@ -20,7 +20,7 @@ $(document).ready(function() {
     {
         let urlParams = new URLSearchParams(window.location.search);
         let myID = urlParams.get('id');
-        console.log(myID);
+        // console.log(myID);
 
         const timeAndDistance = getTimeAndDistance();
         const url = `../server/addRecord.php?UserID=${myID}&time=${timeAndDistance.time}&distance=${timeAndDistance.distance}`;
