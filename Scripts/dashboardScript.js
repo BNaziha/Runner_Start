@@ -23,6 +23,9 @@ class cal {
 
 }
 
+let dataArrDist = new Array(12).fill(0);
+// let dataArr = [];
+
 $(document).ready(function () {
 
     let urlParams = new URLSearchParams(window.location.search);
@@ -32,7 +35,7 @@ $(document).ready(function () {
     }
 
     CaloriesChart();
-    DistChart();
+    // DistChart();
 
     let user;
     $.get("../server/getUser.php?id=" + myID, function (data) {
@@ -61,9 +64,40 @@ $(document).ready(function () {
         $("#avgSpeed").html(totalSpeed.toFixed(2));
         // $("#totalDistance").html(data);
     })
+
+    $.get("../server/dashboardMonthly.php?id=" + myID, function (data) {
+        let obj = JSON.parse(data);
+        console.log(obj);
+        console.log(somDist(obj.Jan));
+        dataArrDist[0] = parseFloat(somDist(obj.Jan));
+        dataArrDist[1] = parseFloat(somDist(obj.Feb));
+        dataArrDist[2] = parseFloat(somDist(obj.Mar));
+        dataArrDist[3] = parseFloat(somDist(obj.Apr));
+        dataArrDist[4] = parseFloat(somDist(obj.May));
+        dataArrDist[5] = parseFloat(somDist(obj.Jun));
+        dataArrDist[6] = parseFloat(somDist(obj.Jul));
+        dataArrDist[7] = parseFloat(somDist(obj.Aug));
+        dataArrDist[8] = parseFloat(somDist(obj.Sep));
+        dataArrDist[9] = parseFloat(somDist(obj.Oct));
+        dataArrDist[10] = parseFloat(somDist(obj.Nov));
+        dataArrDist[11] = parseFloat(somDist(obj.Dec));
+
+        DistChart();
+    });
 });
 
-
+function somDist(arr)
+{
+    if(arr == null)
+    {
+        return 0;
+    }
+    let sum = 0;
+    arr.forEach(element => {
+        sum += element.Distance;
+    });
+    return sum;
+}
 
 function DistChart() {
     const ctx = $('#Dist-graph');
@@ -74,7 +108,7 @@ function DistChart() {
             datasets: [
                 {
                     label: 'Distance',
-                    data: [10, 20, 15, 25, 30, 20, 35, 40, 45, 50, 40, 55],
+                    data: dataArrDist,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
@@ -121,12 +155,12 @@ function CaloriesChart() {
                 }
             ]
         },
-        // options: {
-        //     scales: {
-        //         y: {
-        //             beginAtZero: true
-        //         }
-        //     }
-        // }
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
     });
 }
