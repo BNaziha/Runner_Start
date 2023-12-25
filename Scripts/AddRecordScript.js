@@ -23,14 +23,20 @@ $(document).ready(function() {
         // console.log(myID);
 
         const timeAndDistance = getTimeAndDistance();
-        const url = `../server/addRecord.php?UserID=${myID}&time=${timeAndDistance.time}&distance=${timeAndDistance.distance}`;
-        $.get(url, function(response) {
+        const url = `../server/addRecord.php`;
+        const params = {
+            UserID: myID,
+            time: timeAndDistance.time,
+            distance: timeAndDistance.distance
+        };
+        $.get(url, params, function(response) {
             if(response == true)
             {
                 $('#hours').val('');
                 $('#minutes').val('');
                 $('#seconds').val('');
                 $('#distance').val('');
+                $('#message').html('Record added successfully!');
             }
             else
             {
