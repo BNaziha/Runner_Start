@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    let urlParams = new URLSearchParams(window.location.search);
+    let myID = urlParams.get('id');
+    $("#dashboard").attr("href", "./dashboard.html?id=" + myID);
+
     const BMI_HEADS = $('.bmi-head');
     const BMI_USC = $('#bmi-usc');
     const BMI_SI = $('#bmi-si');
@@ -21,6 +25,7 @@ $(document).ready(function() {
         let urlParams = new URLSearchParams(window.location.search);
         let myID = urlParams.get('id');
         // console.log(myID);
+
 
         const timeAndDistance = getTimeAndDistance();
         const url = `../server/addRecord.php`;

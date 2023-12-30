@@ -31,11 +31,14 @@ $(document).ready(function () {
     let urlParams = new URLSearchParams(window.location.search);
     let myID = urlParams.get('id');
     if (myID == null) {
-        window.location.href = "./login.html";
+        // window.location.href = "./login.html";
     }
 
     CaloriesChart();
     // DistChart();
+
+    $("#profile").attr("href", "./Profil.html?id=" + myID);
+    $("#add-record").attr("href", "./add-record.html?id=" + myID);
 
     let user;
     $.get("../server/getUser.php?id=" + myID, function (data) {
@@ -51,7 +54,7 @@ $(document).ready(function () {
         let totalSpeed = 0;
         console.log(obj);
         obj.data.forEach(element => {
-            totalDistance += parseFloat(element.Distance);   
+            totalDistance += parseFloat(element.Distance);
             totalTime += parseFloat(element.Temps);
             totalCalories += parseInt(element.calories_burned);
             totalSpeed += parseFloat(element.speed);
@@ -86,10 +89,8 @@ $(document).ready(function () {
     });
 });
 
-function somDist(arr)
-{
-    if(arr == null)
-    {
+function somDist(arr) {
+    if (arr == null) {
         return 0;
     }
     let sum = 0;
@@ -144,7 +145,7 @@ function CaloriesChart() {
     const myChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November','December'],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [
                 {
                     label: 'Total Calories',
