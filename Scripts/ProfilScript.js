@@ -5,6 +5,7 @@ $(document).ready(function () {
     let url = window.location.href;
     let id = url.substring(url.lastIndexOf('=') + 1);
 
+    $("#dashboard").attr("href", "Dashboard.html?id=" + id);
 
     $.get("../server/getUser.php", { id: id }, function (response) {
         let temp = JSON.parse(response);
