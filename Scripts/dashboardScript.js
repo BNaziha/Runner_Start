@@ -31,7 +31,7 @@ $(document).ready(function () {
     let urlParams = new URLSearchParams(window.location.search);
     let myID = urlParams.get('id');
     if (myID == null) {
-        window.location.href = "./login.html";
+        // window.location.href = "./login.html";
     }
 
     CaloriesChart();
