@@ -6,8 +6,8 @@
 }
 
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -23,11 +23,17 @@ body {
     margin: 0;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .container {
     width: 480px;
-    height: 620px;
-    background: #fff;
-    
+    min-height: 50vh; /* Adjust as needed */
+    background: #ffc800;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,15 +41,19 @@ body {
     border-radius: 4px;
 }
 
- .nav-links ul li a{
-color: #f49236;
-text-decoration: none;
-font-size: 13px;
-  }
-  .nav-links ul li a:hover{
-    color: #f49236;
-    text-decoration: none;
-  }
+@media (min-width: 992px) {
+    #mainNav .navbar-brand {
+        font-size: 1.5em;
+        transition: font-size 0.3s ease-in-out;
+      }
+    }
+    @media (min-width: 768px) {
+    #mainNav .navbar-nav .nav-item .nav-link {
+        font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 0.95rem;
+        color: #ffc800;
+        letter-spacing: 0.0625em;
+      }}
 .bmi-heads {
     background: var(--magenta);
     color: #fff;
