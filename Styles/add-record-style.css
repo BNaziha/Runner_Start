@@ -25,14 +25,32 @@ body {
 
 .content {
     display: flex;
+    height: 50%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
+.danger {
+    color: rgb(255, 170, 0);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: none;
+    margin-top: 10px; 
+    margin-left: 10px;
+}
+.primary {
+    color: rgb(255, 170, 0);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: none;
+    margin-top: 10px; 
+    margin-left: 10px;
+}
 .container {
     width: 480px;
-    min-height: 50vh; /* Adjust as needed */
+    min-height: 80vh; /* Adjust as needed */
     background: #ffc800;
     display: flex;
     flex-direction: column;
