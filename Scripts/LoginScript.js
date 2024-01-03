@@ -67,6 +67,39 @@ $(document).ready(function() {
             
     });
 
+    $(".date").keyup(function() {
+        let date = $(".date").val();
+        if (date != "") {
+            $(".date").css("border", "2px solid rgb(129, 197, 154)");
+            
+        }
+        else {
+            $(".date").css("border", "2px solid red");
+        }
+    });
+     
+    $(".height").keyup(function() {
+        let height = $(".height").val();
+        if (height != "") {
+            $(".height").css("border", "2px solid rgb(129, 197, 154)");
+            
+        }
+        else {
+            $(".height").css("border", "2px solid red");
+        }
+    });
+
+    $(".weight").keyup(function() {
+        let weight = $(".weight").val();
+        if (weight != "") {
+            $(".weight").css("border", "2px solid rgb(129, 197, 154)"); 
+        }
+        else {
+            $(".weight").css("border", "2px solid red");
+        }
+    });
+
+
 
     $(".login-btn").click(function(event) {
         event.preventDefault();
@@ -109,6 +142,7 @@ $(document).ready(function() {
             }
         });
     });
+    
 
     $(".submit").click(function(event) {
         let email = $(".email").val();
@@ -118,12 +152,14 @@ $(document).ready(function() {
         && $(".full-name").val() != ""
         && $(".date").val() != ""
         && $(".gender").val() != ""
+        && $(".height").val() != ""
+        && $(".weight").val() != ""
         ) {
             $(".input-email").css("border", "2px solid rgb(129, 197, 154)");
             $(".input-password").css("border", "2px solid rgb(129, 197, 154)");
             $(".full-name").css("border", "2px solid rgb(129, 197, 154)");
             // alert("Login successful");
-
+  
         } else {
             $(".input-email").css("border", "2px solid red");
             $(".input-password").css("border", "2px solid red");
