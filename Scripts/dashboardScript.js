@@ -28,25 +28,19 @@ let dataArrDist = new Array(12).fill(0);
 
 $(document).ready(function () {
 
-    let urlParams = new URLSearchParams(window.location.search);
-    let myID = urlParams.get('id');
-    if (myID == null) {
-        // window.location.href = "./login.html";
-    }
-
     CaloriesChart();
     // DistChart();
 
-    $("#profile").attr("href", "./Profil.html?id=" + myID);
-    $("#add-record").attr("href", "./add-record.html?id=" + myID);
+    $("#profile").attr("href", "./Profil.html");
+    $("#add-record").attr("href", "./add-record.html");
 
     let user;
-    $.get("../server/getUser.php?id=" + myID, function (data) {
+    $.get("../server/getUser.php", function (data) {
         user = JSON.parse(data);
         console.log(user);
     });
 
-    $.get("../server/dashboard.php?id=" + myID, function (data) {
+    $.get("../server/dashboard.php", function (data) {
         let obj = JSON.parse(data);
         let totalDistance = 0;
         let totalCalories = 0;
@@ -68,7 +62,7 @@ $(document).ready(function () {
         // $("#totalDistance").html(data);
     })
 
-    $.get("../server/dashboardMonthly.php?id=" + myID, function (data) {
+    $.get("../server/dashboardMonthly.php", function (data) {
         let obj = JSON.parse(data);
         console.log(obj);
         console.log(somDist(obj.Jan));
@@ -114,20 +108,6 @@ function DistChart() {
                     borderColor: 'rgba(75, 192, 192, 1)',
                     borderWidth: 1
                 },
-                // {
-                //     label: 'Total Minutes',
-                //     data: [120, 150, 180, 160, 200, 190, 220, 210, 240, 230, 250, 270],
-                //     backgroundColor: 'rgba(192, 75, 192, 0.2)',
-                //     borderColor: 'rgba(192, 75, 192, 1)',
-                //     borderWidth: 1
-                // },
-                // {
-                //     label: 'Total Calories',
-                //     data: [500, 600, 550, 700, 650, 600, 750, 800, 750, 900, 850, 950],
-                //     backgroundColor: 'rgba(192, 192, 75, 0.2)',
-                //     borderColor: 'rgba(192, 192, 75, 1)',
-                //     borderWidth: 1
-                // }
             ]
         },
         options: {

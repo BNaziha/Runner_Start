@@ -1,14 +1,15 @@
 <?php
 
+session_start();
 //verify if the id and the height and the weight is set and not empty
-if (!isset($_GET['id']) || empty($_GET['id']) || !isset($_GET['height']) || empty($_GET['height']) || !isset($_GET['weight']) || empty($_GET['weight'])) {
+if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id']) || !isset($_GET['height']) || empty($_GET['height']) || !isset($_GET['weight']) || empty($_GET['weight'])) {
     $obj = ['response' => false];
     echo json_encode($obj);
     exit();
 }
 
 //get the id, the height and the weight
-$id = $_GET['id'];
+$id = $_SESSION['user_id'];
 $height = $_GET['height'];
 $weight = $_GET['weight'];
 

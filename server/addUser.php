@@ -21,6 +21,8 @@ if (isset($_POST['FullName']) && isset($_POST['email']) && isset($_POST['passwor
         $insertQuery = "INSERT INTO personnes (Nom, Email, MotDePasse, DateNaissance, Taille, Poids, Sexe) VALUES ('$FullName', '$email', '$hpass', '$date', '$height', '$weight', '$sex')";
         mysqli_query($conn, $insertQuery);
         $last_id = mysqli_insert_id($conn);
+        session_start();
+        $_SESSION["user_id"] = $last_id;
         echo json_encode(["s" => true, "id" => $last_id]);
     }
 } else {

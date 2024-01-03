@@ -72,11 +72,11 @@ $(document).ready(function() {
         event.preventDefault();
         var email = $(".email-login").val();
         var pass = $(".password-login").val();
-        $.post("../server/verifyEmail.php", {email:email ,password:pass}, function(data) {
+        $.post("../server/login.php", {email:email ,password:pass}, function(data) {
             let Objdata = JSON.parse(data);
             if(Objdata.s == true)
             {
-                window.location.href = "./add-record.html?id="+Objdata.id; //todo: change to dashboard.html
+                window.location.href = "./add-record.html"; //todo: change to dashboard.html
             }
             else
             {
@@ -99,7 +99,7 @@ $(document).ready(function() {
             if(Objdata.s == true)
             {
                 // alert("Register successful");
-                window.location.href = "./add-record.html?id="+Objdata.id;
+                window.location.href = "./add-record.html";
 
             }
             else

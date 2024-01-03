@@ -17,7 +17,10 @@ if ($result->num_rows > 0) {
     // $id = $result->fetch_assoc()["ID"];
     if(password_verify($_POST["password"], $obj["MotDePasse"]))
     {
-        echo json_encode(["s" => true, "id" => $obj["ID"]]);    
+        session_start();
+        $_SESSION["user_id"] = $obj["ID"];  
+        echo json_encode(["s" => true, "id" => $obj["ID"]]);  
+        
     }
     else
     {

@@ -1,13 +1,9 @@
 //use jquery to get the value from database and display it in the text box
 $(document).ready(function () {
 
-    //get the user id from the url
-    let url = window.location.href;
-    let id = url.substring(url.lastIndexOf('=') + 1);
+    $("#dashboard").attr("href", "Dashboard.html");
 
-    $("#dashboard").attr("href", "Dashboard.html?id=" + id);
-
-    $.get("../server/getUser.php", { id: id }, function (response) {
+    $.get("../server/getUser.php", function (response) {
         let temp = JSON.parse(response);
         console.log(temp);
         if (temp.response) {

@@ -1,14 +1,14 @@
 <?php
 
 require_once './connDB.php';
-
-if (!isset($_GET['id']) || empty($_GET['id'])) {
+session_start();
+if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     $obj = ['response' => false];
     echo json_encode($obj);
     exit();
 }
 
-$id = $_GET['id'];
+$id = $_SESSION['user_id'];
 $year = date('Y');
 $sql = "SELECT * FROM `records` WHERE `UserID` = $id AND `date` >= '$year-01-01' AND `date` <= '$year-12-31'";
 $result = $conn->query($sql);
