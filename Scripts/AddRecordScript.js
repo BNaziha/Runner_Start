@@ -1,6 +1,45 @@
 $(document).ready(function() {
     $("#dashboard").attr("href", "./dashboard.html");
 
+    $.get('../server/isCoach.php', function(data) {
+        let obj = JSON.parse(data);
+        if(obj.response) {
+            $("#member").hide();
+            $("#grpID").html("You are the coach of groupe : " + obj.groupeID);
+        }
+        else {
+            $.get('../server/isMember.php', function(data) {
+                let obj = JSON.parse(data);
+                if(!obj.response) {
+                    $("#coach").hide();
+                }
+                else {
+                    $("#coach").hide();
+                    $("#member").hide();
+                }
+            });
+        }
+    });
+
+    $('#join_group').click(function() {
+        const url = `../server/insertGroup.php`;
+        const params = {
+            groupeID: $('#groupID').val()
+        };
+        $.get(url, params, function(response) {
+            if(response.response)
+            {
+                $('#groupID').val('');
+                $('#message').html('Member joined successfully!');
+            }
+            else
+            {
+                alert("Error: " + response);
+            }
+        });
+    });
+
+
     function getTimeAndDistance() {
         const h = $('#hours').val();
         const m = $('#minutes').val();
