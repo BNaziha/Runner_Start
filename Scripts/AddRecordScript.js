@@ -1,25 +1,18 @@
+let isCoach = false;
+
 $(document).ready(function() {
     $("#dashboard").attr("href", "./dashboard.html");
 
-    $.get('../server/isCoach.php', function(data) {
-        let obj = JSON.parse(data);
-        if(obj.response) {
-            $("#member").hide();
-            $("#grpID").html("You are the coach of groupe : " + obj.groupeID);
+
+    refresh();
+    
+
+    $('#coach').click(function() {
+        if(!isCoach) {
+            $.get('../server/createGrp.php');
+            refresh();
         }
-        else {
-            $.get('../server/isMember.php', function(data) {
-                let obj = JSON.parse(data);
-                if(!obj.response) {
-                    $("#coach").hide();
-                }
-                else {
-                    $("#coach").hide();
-                    $("#member").hide();
-                }
-            });
-        }
-    });
+});
 
     $('#join_group').click(function() {
         const url = `../server/insertGroup.php`;
@@ -27,14 +20,15 @@ $(document).ready(function() {
             groupeID: $('#groupID').val()
         };
         $.get(url, params, function(response) {
-            if(response.response)
+            let obj = JSON.parse(response);
+            if(ob.response)
             {
                 $('#groupID').val('');
                 $('#message').html('Member joined successfully!');
             }
             else
             {
-                alert("Error: " + response);
+                alert("Error: " + obj);
             }
         });
     });
@@ -91,3 +85,26 @@ $(document).ready(function() {
         $('#message').html('');
     });
 });
+
+function refresh() {
+    $.get('../server/isCoach.php', function(data) {
+        let obj = JSON.parse(data);
+        isCoach = obj.response;
+        if(obj.response) {
+            $("#member").hide();
+            $("#grpID").html("You are the coach of groupe : " + obj.groupeID);
+        }
+        else {
+            $.get('../server/isMember.php', function(data) {
+                let obj = JSON.parse(data);
+                if(!obj.response) {
+                    $("#coach").hide();
+                }
+                else {
+                    $("#coach").hide();
+                    $("#member").hide();
+                }
+            });
+        }
+    });
+}
