@@ -20,7 +20,7 @@ $(document).ready(function() {
 
     sign_in_btn2.on("click", function() {
         container.removeClass("sign-up-mode2");
-    });
+    }); 
 
     function validateEmail(email) {
         var re = /\S+@\S+\.\S+/;
