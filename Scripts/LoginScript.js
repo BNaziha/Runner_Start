@@ -70,32 +70,32 @@ $(document).ready(function() {
     $(".date").keyup(function() {
         let date = $(".date").val();
         if (date != "") {
-            $(".date").css("border", "2px solid rgb(129, 197, 154)");
+            $(".input-date").css("border", "2px solid rgb(129, 197, 154)");
             
         }
         else {
-            $(".date").css("border", "2px solid red");
+            $(".input-date").css("border", "2px solid red");
         }
     });
      
     $(".height").keyup(function() {
         let height = $(".height").val();
         if (height != "") {
-            $(".height").css("border", "2px solid rgb(129, 197, 154)");
+            $(".input-height").css("border", "2px solid rgb(129, 197, 154)");
             
         }
         else {
-            $(".height").css("border", "2px solid red");
+            $(".input-height").css("border", "2px solid red");
         }
     });
 
     $(".weight").keyup(function() {
         let weight = $(".weight").val();
         if (weight != "") {
-            $(".weight").css("border", "2px solid rgb(129, 197, 154)"); 
+            $(".input-weight").css("border", "2px solid rgb(129, 197, 154)"); 
         }
         else {
-            $(".weight").css("border", "2px solid red");
+            $(".input-weight").css("border", "2px solid red");
         }
     });
 
